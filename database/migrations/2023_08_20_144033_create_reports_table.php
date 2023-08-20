@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('recommendation', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->text('pesticides')->nullable();
-            $table->text('organic_remedies')->nullable();
-            $table->text('caltural_practices')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('recommendation');
+        Schema::dropIfExists('reports');
     }
 };

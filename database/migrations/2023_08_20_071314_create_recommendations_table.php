@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('knowledge_base', function (Blueprint $table) {
+        Schema::create('recommendations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('disease')->constrained()->onDelete('cascade');
-            $table->text('pests');
-            $table->text('best_practice');
+            $table->string('pesticides');
+            $table->string('organic_remedies');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('knowledge_base');
+        Schema::dropIfExists('recommendations');
     }
 };
