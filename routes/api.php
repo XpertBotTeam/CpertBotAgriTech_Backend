@@ -3,6 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\DiseaseController;
+use App\Http\Controllers\API\ReportController;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +17,8 @@ use App\Http\Controllers\API\AuthController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::resource('diseases',DiseaseController::class);
+Route::resource('report',ReportController::class);
 
 Route::post('register',[AuthController::class,'register']);
 Route::post('login',[AuthController::class,'login']);
