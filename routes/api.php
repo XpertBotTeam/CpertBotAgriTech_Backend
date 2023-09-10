@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\DiseaseController;
 use App\Http\Controllers\API\ReportController;
+use App\Http\Controllers\API\RecommendationController;
 
 
 /*
@@ -18,7 +19,8 @@ use App\Http\Controllers\API\ReportController;
 |
 */
 Route::resource('diseases',DiseaseController::class);
-Route::resource('report',ReportController::class);
+Route::resource('reports',ReportController::class);
+Route::resource('recommendations',RecommendationController::class);
 
 Route::post('register',[AuthController::class,'register']);
 Route::post('login',[AuthController::class,'login']);
