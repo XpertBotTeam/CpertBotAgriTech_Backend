@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PhotoRequest;
-use App\Models\Photo;
+use App\Http\Requests\knowledgebaserequest;
+use App\Models\Knowledge_Base;
 use Illuminate\Http\Request;
 
-class PhotoController extends Controller
+class knowledgeBase extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,9 @@ class PhotoController extends Controller
     {
         //
         $per_page = $request->get('per_page',25);
-        $photo = Photo::paginate($per_page);
-        return response()->json($photo);
+        $knowledgebase = Knowledge_Base::paginate($per_page);
+        return response()->json($knowledgebase);
+
     }
 
     /**
@@ -26,16 +27,17 @@ class PhotoController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PhotoRequest $request)
+    public function store(Request $request)
     {
         //
-        $photo = Photo::create($request->all());
-        return response()->json($photo,201);
+        $knowledgebase = Knowledge_Base::create($request->all());
+        return response()->json($knowledgebase,201);
     }
 
     /**
@@ -44,8 +46,8 @@ class PhotoController extends Controller
     public function show(string $id)
     {
         //
-        $photo = Photo::findOrfail($id);
-        return response()->json($photo);
+        $knowledgebase = Knowledge_Base::findOrfail($id);
+        return response()->json($knowledgebase);
     }
 
     /**
@@ -54,17 +56,18 @@ class PhotoController extends Controller
     public function edit(string $id)
     {
         //
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(PhotoRequest $request, string $id)
+    public function update(knowledgebaserequest $request, string $id)
     {
         //
-        $photo = Photo::findOrFail($id);
-        $photo->update($request->all());
-        return response()->json($photo);
+        $knowledgebase = Knowledge_Base::findOrFail($id);
+        $knowledgebase->update($request->all());
+        return response()->json($knowledgebase);
     }
 
     /**
@@ -73,8 +76,8 @@ class PhotoController extends Controller
     public function destroy(string $id)
     {
         //
-        $photo = Photo::findOrFail($id);
-        $photo->delete();
+        $knowledgebase = Knowledge_Base::findOrFail($id);
+        $knowledgebase->delete();
         return response()->json(null,204);
     }
 }

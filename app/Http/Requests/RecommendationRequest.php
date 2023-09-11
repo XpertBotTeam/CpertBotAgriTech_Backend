@@ -11,7 +11,7 @@ class RecommendationRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,8 @@ class RecommendationRequest extends FormRequest
     {
         return [
             //
+            'pesticides'=>'required|string|max:1000',
+            'organic_remedies'=>'required|string|max:1000'
         ];
     }
 }

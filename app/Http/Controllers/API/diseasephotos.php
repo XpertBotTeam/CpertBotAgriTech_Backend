@@ -3,21 +3,18 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PhotoRequest;
-use App\Models\Photo;
+use App\Http\Requests\diseasephotosRequest;
+use App\Models\Disease;
 use Illuminate\Http\Request;
 
-class PhotoController extends Controller
+class diseasephotos extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
         //
-        $per_page = $request->get('per_page',25);
-        $photo = Photo::paginate($per_page);
-        return response()->json($photo);
     }
 
     /**
@@ -31,11 +28,9 @@ class PhotoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PhotoRequest $request)
+    public function store(diseasephotosRequest $request)
     {
         //
-        $photo = Photo::create($request->all());
-        return response()->json($photo,201);
     }
 
     /**
@@ -44,8 +39,6 @@ class PhotoController extends Controller
     public function show(string $id)
     {
         //
-        $photo = Photo::findOrfail($id);
-        return response()->json($photo);
     }
 
     /**
@@ -59,12 +52,9 @@ class PhotoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PhotoRequest $request, string $id)
+    public function update(Request $request, string $id)
     {
         //
-        $photo = Photo::findOrFail($id);
-        $photo->update($request->all());
-        return response()->json($photo);
     }
 
     /**
@@ -73,8 +63,5 @@ class PhotoController extends Controller
     public function destroy(string $id)
     {
         //
-        $photo = Photo::findOrFail($id);
-        $photo->delete();
-        return response()->json(null,204);
     }
 }

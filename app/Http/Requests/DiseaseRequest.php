@@ -24,21 +24,16 @@ class DiseaseRequest extends FormRequest
         return [
             //
             'name'=>'required|string|max:255',
-            'description'=>'required|string|max:255',
-            'causal_agent'=>'required|string|max:255',
-            'transmission'=>'required|string|max:255',
-            'prevention'=>'required|string|max:255',
-            'symptoms' => 'required|string|max:255',
-            'diagnosis'=>'required|string|max:255',
-            'treatment'=> 'required|string|max:255'
+            'description'=>'required|string|max:1000',
+            'causal_agent'=>'required|string|max:1000',
+            'transmission'=>'required|string|max:1000',
+            'prevention'=>'required|string|max:1000',
+            'symptoms' => 'required|string|max:1000',
+            'diagnosis'=>'required|string|max:1000',
+            'treatment'=> 'required|string|max:1000'
         ];
 
     }
 }
-// $table->text('description');
-// $table->text('causal_agent');
-// $table->text('transmission');
-// $table->text('prevention');
-// $table->text('symptoms');
-// $table->text('diagnosis');
-// $table->text('treatment');
+
+

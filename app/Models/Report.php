@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Report extends Model
 {
     use HasFactory;
+    protected $fillable = ['disease_id','body'];
 
 }

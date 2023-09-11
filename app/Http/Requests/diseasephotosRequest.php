@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReportRequest extends FormRequest
+class diseasephotosRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,6 @@ class ReportRequest extends FormRequest
     {
         return [
             //
-            'disease_id'=>'required|exists:diseases,id',
-            'body' => 'required|string|max:1000'
         ];
     }
 }

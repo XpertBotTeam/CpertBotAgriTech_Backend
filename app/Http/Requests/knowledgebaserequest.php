@@ -4,14 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ReportRequest extends FormRequest
+class knowledgebaserequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,8 +23,8 @@ class ReportRequest extends FormRequest
     {
         return [
             //
-            'disease_id'=>'required|exists:diseases,id',
-            'body' => 'required|string|max:1000'
+            'pests'=>'required|string|max:500',
+            'best_practice'=>'required|string|max:1000'
         ];
     }
 }
