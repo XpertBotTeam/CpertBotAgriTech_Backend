@@ -11,7 +11,7 @@ class PhotoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,6 +23,9 @@ class PhotoRequest extends FormRequest
     {
         return [
             //
+            'captions' => 'required|string|max:255',
+            'plantNames' => 'required|string|max:255',
+            'image' =>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 }

@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('diseasephotos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('disease_id')->constrained()->onDelete('cascade');
-            $table->foreignId('photo_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('photo_id');
+            $table->unsignedBigInteger('disease_id');
             $table->timestamps();
+
+            $table->foreign('photo_id')->references('id')->on('photos')->onDelete('cascade');
+            $table->foreign('disease_id')->references('id')->on('diseases')->onDelete('cascade');
+
+
         });
     }
 

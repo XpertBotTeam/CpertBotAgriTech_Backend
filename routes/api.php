@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\DiseaseController;
+use App\Http\Controllers\API\DiseasePhotoConroller;
 use App\Http\Controllers\API\ReportController;
 use App\Http\Controllers\API\RecommendationController;
 use App\Http\Controllers\API\knowledgeBase;
@@ -23,6 +24,7 @@ Route::resource('diseases',DiseaseController::class);
 Route::resource('reports',ReportController::class);
 Route::resource('recommendations',RecommendationController::class);
 Route::resource('knowledgeBase',knowledgeBase::class);
+Route::resource('disease-photo',DiseasePhotoConroller::class);
 
 Route::post('register',[AuthController::class,'register']);
 Route::post('login',[AuthController::class,'login']);
