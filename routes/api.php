@@ -9,6 +9,7 @@ use App\Http\Controllers\API\ReportController;
 use App\Http\Controllers\API\RecommendationController;
 use App\Http\Controllers\API\knowledgeBase;
 use App\Http\Controllers\API\LocationController;
+use App\Http\Controllers\API\PhotoController;
 use App\Http\Controllers\API\VideoController;
 
 /*
@@ -29,6 +30,7 @@ Route::resource('knowledgeBase',knowledgeBase::class);
 Route::resource('disease-photo',DiseasePhotoConroller::class);
 Route::resource('location',LocationController::class);
 Route::resource('video',VideoController::class);
+Route::resource('photo',PhotoController::class);
 
 Route::post('register',[AuthController::class,'register']);
 Route::post('login',[AuthController::class,'login']);

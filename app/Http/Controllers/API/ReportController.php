@@ -76,7 +76,7 @@ class ReportController extends Controller
     {
         //
         $report = Report::findOrfail($id);
-        $report->destroy();
+        $report->delete();
         return response()->json(null,204);
     }
 }
