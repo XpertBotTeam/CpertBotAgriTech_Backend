@@ -24,7 +24,8 @@ class RecommendationRequest extends FormRequest
         return [
             //
             'pesticides'=>'required|string|max:1000',
-            'organic_remedies'=>'required|string|max:1000'
+            'organic_remedies'=>'required|string|max:1000',
+            'disease_id' => 'exists:disease,id'
         ];
     }
 }

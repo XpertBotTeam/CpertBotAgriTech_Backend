@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('recommendations', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('disease_id')->nullable();
+            $table->foreign('disease_id')->references('id')->on('diseases');
             $table->string('pesticides');
             $table->string('organic_remedies');
             $table->timestamps();

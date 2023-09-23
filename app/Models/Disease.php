@@ -23,4 +23,9 @@ class Disease extends Model
         return $this->hasMany(Knowledge_Base::class);
     }
 
+    public function recommendation()
+    {
+        return $this->hasOne(Recommendation::class);
+    }
+
 }
