@@ -23,7 +23,7 @@ class PhotoRequest extends FormRequest
     {
         return [
             //
-            'caption' => 'required|string|max:255',
+            'caption' => 'sometimes|string|max:255',
             'plantName' => 'required|string|max:255',
             'image' =>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
