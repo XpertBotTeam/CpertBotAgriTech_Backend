@@ -23,9 +23,11 @@ class PhotoRequest extends FormRequest
     {
         return [
             //
+            // 'name' => 'required|string|max:255',
             'caption' => 'sometimes|string|max:255',
             'plantName' => 'sometimes|string|max:255',
-            'image_url' =>'required|string|max:255 ',
+            // 'image_url' =>'required|string|max:255 ',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 }

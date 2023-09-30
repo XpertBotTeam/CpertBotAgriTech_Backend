@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PhotoRequest;
 use App\Models\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
@@ -34,8 +35,23 @@ class PhotoController extends Controller
     public function store(PhotoRequest $request)
     {
         //
-        $photo = Photo::create($request->all());
-        return response()->json($photo,201);
+
+        $image = $request->file('image');
+
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        // $imageName = $request->get('name','');
+
+
+        Storage::putFileAs('public',$image, $imageName);
+
+        $image = Photo::create([
+            'name' => $imageName,
+            'caption' => $request->get('caption', ''),
+            'plantName' => $request->get('plantName', ''),
+            'image_url' => asset('public/storage/'.$imageName),
+        ]);
+
+        return response()->json($image);
     }
 
     /**
