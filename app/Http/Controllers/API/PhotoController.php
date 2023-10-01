@@ -7,6 +7,7 @@ use App\Http\Requests\PhotoRequest;
 use App\Models\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Google\Cloud\Vision\VisionClient;
 
 class PhotoController extends Controller
 {
@@ -42,13 +43,17 @@ class PhotoController extends Controller
         // $imageName = $request->get('name','');
 
 
-        Storage::putFileAs('public',$image, $imageName);
+        Storage::putFileAs('public/photos',$image, $imageName);
+
+
+        // detection
+
 
         $image = Photo::create([
             'name' => $imageName,
             'caption' => $request->get('caption', ''),
             'plantName' => $request->get('plantName', ''),
-            'image_url' => asset('public/storage/'.$imageName),
+            'image_url' => asset('storage/photos/'.$imageName),
         ]);
 
         return response()->json($image);

@@ -9,7 +9,7 @@ class DiseasePhoto extends Model
 {
     use HasFactory;
 
-    protected $table = 'disease_photo';
+    protected $table = 'diseasephotos';
 
     protected $fillable = ['photo_id', 'disease_id'];
 

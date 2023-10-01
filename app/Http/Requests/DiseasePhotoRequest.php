@@ -24,7 +24,7 @@ class DiseasePhotoRequest extends FormRequest
         return [
             //
             'disease_id' => ['required', 'exists:diseases,id'],
-            'photo_id' => ['required', 'exists:photo,id'],
+            'photo_id' => ['required', 'exists:photos,id'],
         ];
     }
 }
