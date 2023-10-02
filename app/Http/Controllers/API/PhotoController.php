@@ -36,8 +36,23 @@ class PhotoController extends Controller
     public function store(PhotoRequest $request)
     {
         //
-
+        // get the photo from the request
         $image = $request->file('image');
+
+        // read the image file contents
+        $imageContents = file_get_contents($image->getPathname());
+
+        // initialize the vision api client
+        $vision = new VisionClient();
+
+        // perform safe search detection on the image contents
+        $imagevision = $vision->image($imageContents,[
+            'SAFE_SEARCH_DETECTION',
+        ]);
+
+        $annotation = $vision->annotate($imagevision);
+        $safeSearch = $annotation->safeSearch();
+        echo $safeSearch;
 
         $imageName = time().'.'.$image->getClientOriginalExtension();
         // $imageName = $request->get('name','');
@@ -47,6 +62,7 @@ class PhotoController extends Controller
 
 
         // detection
+
 
 
         $image = Photo::create([
