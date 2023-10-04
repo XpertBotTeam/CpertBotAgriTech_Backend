@@ -7,7 +7,7 @@ use App\Http\Requests\PhotoRequest;
 use App\Models\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Google\Cloud\Vision\VisionClient;
+// use Google\Cloud\Vision\VisionClient;
 
 class PhotoController extends Controller
 {
