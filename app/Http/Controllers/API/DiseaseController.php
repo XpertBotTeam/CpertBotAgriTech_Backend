@@ -16,7 +16,7 @@ class DiseaseController extends Controller
     {
         //
         $per_page = $request->get('per_page',25);
-        $disease = Disease::paginate($per_page);
+        $disease = Disease::whith('photo')->paginate($per_page);
         return response()->json($disease);
 
     }
