@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -65,5 +66,34 @@ class AuthController extends Controller
         }
 
 
+    }
+    public function update_Password(Request $request)
+    {
+        $this->validate($request, [
+            'old_password' => 'required',
+            'new_password' => 'required|min:8|max:100',
+            'confirm_password' => 'required|same:new_password'
+        ]);
+
+        $current_user = $request->user();
+
+        if(Hash::check($request->old_password, $current_user->password))
+        {
+            $current_user->update([
+                'password' => bcrypt($request->new_password)
+            ]);
+            return response()->json([
+                'status'=>true,
+                'message'=>'Password Changed Successfully'
+            ]);
+
+        }
+        else
+        {
+            return response()->json([
+                'status'=>false,
+                'message'=>'Old password is incorrect'
+            ]);
+        }
     }
 }

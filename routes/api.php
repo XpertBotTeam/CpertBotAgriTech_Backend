@@ -34,6 +34,7 @@ Route::resource('photo',PhotoController::class);
 
 Route::post('register',[AuthController::class,'register']);
 Route::post('login',[AuthController::class,'login']);
+Route::post('update_Password',[AuthController::class,'update_Password']); //->middleware('auth:sunctum');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
