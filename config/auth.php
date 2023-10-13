@@ -36,6 +36,10 @@ return [
     */
 
     'guards' => [
+        'sunctum' => [
+            'driver' => 'session', // You can use 'token' or 'passport' if needed
+            'provider' => 'sunctum_users', // Define your own user provider if necessary
+        ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -60,6 +64,10 @@ return [
     */
 
     'providers' => [
+        'sunctum_users' => [
+            'driver' => 'eloquent', // Use 'database', 'ldap', or other options if needed
+            'model' => App\SunctumUser::class, // Replace with your User model
+        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,

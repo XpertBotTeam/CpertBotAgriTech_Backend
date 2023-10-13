@@ -7,7 +7,7 @@ use App\Http\Requests\PhotoRequest;
 use App\Models\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-// use Google\Cloud\Vision\VisionClient;
+use Google\Cloud\Vision\VisionClient;
 
 class PhotoController extends Controller
 {
@@ -42,17 +42,17 @@ class PhotoController extends Controller
         // read the image file contents
         $imageContents = file_get_contents($image->getPathname());
 
-        // initialize the vision api client
-       // $vision = new VisionClient();
+       // initialize the vision api client
+    //    $vision = new VisionClient();
 
-        // perform safe search detection on the image contents
-        // $imagevision = $vision->image($imageContents,[
-        //     'SAFE_SEARCH_DETECTION',
-        // ]);
+    //     // perform safe search detection on the image contents
+    //     $imagevision = $vision->image($imageContents,[
+    //         'SAFE_SEARCH_DETECTION',
+    //     ]);
 
-        // $annotation = $vision->annotate($imagevision);
-        // $safeSearch = $annotation->safeSearch();
-        // echo $safeSearch;
+    //     $annotation = $vision->annotate($imagevision);
+    //     $safeSearch = $annotation->safeSearch();
+    //     echo $safeSearch;
 
         $imageName = time().'.'.$image->getClientOriginalExtension();
         // $imageName = $request->get('name','');
@@ -115,3 +115,5 @@ class PhotoController extends Controller
         return response()->json(null,204);
     }
 }
+
+// 7014349a1194941597a568ffb0d7b6488e95a262
